@@ -569,7 +569,16 @@ function tick(){
   }
 }
 
-// ── PRE-RENDER GROUND TEXTURES ───────────────────────────────────
+// ── CHEAT KEYS ───────────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(e.key==='b'||e.key==='B'){
+    if(dead||bossSpawned) return;
+    bossSpawned=true;
+    waveOn=true;
+    spawnQ=[];
+    spawnBoss();
+  }
+});
 const grassCanvas=document.createElement('canvas'); grassCanvas.width=40; grassCanvas.height=40;
 const gc=grassCanvas.getContext('2d');
 const pathCanvas=document.createElement('canvas'); pathCanvas.width=40; pathCanvas.height=40;
